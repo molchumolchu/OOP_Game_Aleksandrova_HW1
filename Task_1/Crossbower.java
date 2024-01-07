@@ -2,32 +2,27 @@ package Task_1;
 
 /*
 арбалетчик стреляет, не двигается
+есть запас стрелл, определяет наименьшее растояние и наносит повреждение на всем поле. учитываь броню
  */
 public class Crossbower extends Hero {
 
-    public Crossbower(String nameHero) {
-        super(75,
-                75,
-                2,
-                new int []{10,15},
-                nameHero);
-        rangeMaxDamage = 4;
-        arrowsCount = 10;
+
+    public Crossbower(String nameHero, int posX, int posY) {
+        super(75, 75, 2, new int[]{10,15}, nameHero, posX, posY);
+        this.rangeMaxDamage = 4;
+//        this.arrowsCount = arrowsCount;
+
     }
+
     int rangeMaxDamage;
     int arrowsCount;
+//    protected Vector2 position;
 
     @Override
     public String toString() {
         return ("Арбалетчик: "+nameHero + ", health: "+ health + "/" + healthMax + " броня: " + armor+ ", стрелы в наличии: "+arrowsCount);
     }
 
-    public int Attack() {
-        int damage = Hero.r.nextInt(5, 10);
-        this.arrowsCount -= (int) (damage * 0.8);
-        if (arrowsCount < 0)
-            return 0;
-        else
-            return damage;
-    }
+
+
 }
