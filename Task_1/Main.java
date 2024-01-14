@@ -1,24 +1,58 @@
 package Task_1;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
+
 public class Main {
+
+    public Main() {
+    }
     public static void main(String[] args) {
         heroesWhite = generateCommande(0,0);
         heroesBlack = generateCommande(3,9);
-        heroesWhite.forEach(n-> System.out.println(n.toString()));
-        System.out.println("---");
-        heroesBlack.forEach(n-> System.out.println(n.toString()));
-        System.out.println("---");
-        heroesBlack.forEach(n-> n.printEnemyDistance(heroesWhite));
+//        heroesWhite.forEach(n-> System.out.println(n.toString()));
+//        System.out.println("---");
+//        heroesBlack.forEach(n-> System.out.println(n.toString()));
+//        System.out.println("---");
+//        heroesBlack.forEach(n-> n.printEnemyDistance(heroesWhite));
 
-        Crossbower hero1=new Crossbower("Man", 1,1);
-        System.out.println(hero1.getEnemyDist(heroesBlack));
-        hero1.currentDemage(hero1.getEnemyDist(heroesBlack), hero1);
 
+//        Crossbower hero1=new Crossbower("Man", 1,1);
+//        System.out.println(hero1.getEnemyDist(heroesBlack));
+//        hero1.currentDemage(hero1.getEnemyDist(heroesBlack), hero1);
+
+        Sniper h1 = new Sniper("Artemisia Imbrex", 3, 4);
+        h1.shoot(heroesWhite.get(2));
+        System.out.println(heroesWhite.get(2));
+        Monk h2 = new Monk("Bella Caudinus", 7, 9);
+        h2.heal(heroesWhite.get(2));
+        h2.heal(heroesWhite.get(2));
+        h2.die();
+        Peasant h3 = new Peasant("Claudius Pulcher", 2, 3);
+
+        while(!h3.isDead()) {
+            Hero ch = h1.findClosestEnemy(heroesBlack);
+            System.out.println(ch.position.rangeEnemy(h1.getLocation()));
+            if (ch.isDead()) {
+                break;
+            }
+
+            while (!ch.isDead()) {
+                while (h1.shoot(ch)) {
+                    System.out.println(ch);
+                }
+
+                if (!h1.shoot(h3)) {
+                    h3.giveBows(h1);
+                    System.out.println(h3);
+                }
+
+                if (h3.isDead()) {
+                    break;
+                }
+            }
+        }
     }
 
 

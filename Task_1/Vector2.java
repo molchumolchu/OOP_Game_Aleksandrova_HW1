@@ -12,4 +12,12 @@ public class Vector2 {
         double distance = (float) Math.sqrt(Math.pow(posX - posEnemy.posX, 2) + Math.pow(posY-posEnemy.posY, 2));
         return (float) distance;
     }
+
+    public int getX() {
+        return this.posX;
+    }
+
+    public int getY() {
+        return this.posY;
+    }
 }

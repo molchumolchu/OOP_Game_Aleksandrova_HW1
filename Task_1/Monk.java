@@ -1,9 +1,13 @@
 package Task_1;
 
+import Roles.Support;
+
+import java.util.ArrayList;
+
 /*
 безлимитная мана, не двигается
  */
-public class Monk extends Hero {
+public class Monk extends Support {
 
 
     public Monk(String nameHero, int posX, int posY) {
@@ -16,4 +20,6 @@ public class Monk extends Hero {
 
         return ("Монах: "+nameHero + ", health: "+ health + "/" + healthMax + " броня: " + armor);
     }
+
+
 }

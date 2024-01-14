@@ -1,9 +1,13 @@
 package Task_1;
 
+import Roles.Melee;
+
+import java.util.ArrayList;
+
 /*
 разбойник аттакует
  */
-public class Rogue extends Hero {
+public class Rogue extends Melee {
 
 
     public Rogue(String nameHero, int posX, int posY) {
@@ -14,4 +18,5 @@ public class Rogue extends Hero {
     public String toString() {
         return ("Разбойник: "+nameHero + ", health: "+ health + "/" + healthMax + " броня: " + armor);
     }
+
 }

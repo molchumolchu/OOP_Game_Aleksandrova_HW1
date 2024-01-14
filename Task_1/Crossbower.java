@@ -4,7 +4,12 @@ package Task_1;
 арбалетчик стреляет, не двигается
 есть запас стрелл, определяет наименьшее растояние и наносит повреждение на всем поле. учитываь броню
  */
-public class Crossbower extends Hero {
+
+import Roles.Archer;
+
+import java.util.ArrayList;
+
+public class Crossbower extends Archer {
 
 
     public Crossbower(String nameHero, int posX, int posY) {
@@ -22,7 +27,6 @@ public class Crossbower extends Hero {
     public String toString() {
         return ("Арбалетчик: "+nameHero + ", health: "+ health + "/" + healthMax + " броня: " + armor+ ", стрелы в наличии: "+arrowsCount);
     }
-
 
 
 }
