@@ -1,5 +1,7 @@
 package Task_1;
 
+import Interfaces.Step;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,7 +12,9 @@ import java.util.Random;
 //        * Sniper cb analog shot cant move
 //        * Rogue move attack
 //        * Peasant cant move cant heal carry bows for cb and sniper
-abstract public class Hero {
+abstract public class Hero implements Step {
+
+
     protected static Random random;
     protected int health, healthMax, armor;
     protected int[] damage;
@@ -72,7 +76,16 @@ abstract public class Hero {
         return this.nameHero;
     }
 
+    @Override
+    public void step(ArrayList<Hero> enemies) {
+        System.out.println("Not implemented");
+    }
 
+    protected int initiative;
+
+    public int getInitiative(){
+        return initiative;
+    }
 
 }
 

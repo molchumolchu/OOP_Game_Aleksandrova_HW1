@@ -1,20 +1,32 @@
 package Task_1;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
+//import java.util.Random;
 
 
 public class Main {
 
-    public Main() {
-    }
+    static ArrayList<Hero> heroesWhite= new ArrayList<>();
+    static ArrayList<Hero> heroesBlack= new ArrayList<>();
+
+
     public static void main(String[] args) {
         heroesWhite = generateCommande(0,0);
         heroesBlack = generateCommande(3,9);
-//        heroesWhite.forEach(n-> System.out.println(n.toString()));
-//        System.out.println("---");
-//        heroesBlack.forEach(n-> System.out.println(n.toString()));
-//        System.out.println("---");
+
+        ArrayList<Hero> heroOrder = new ArrayList<>();
+        heroOrder.addAll(heroesWhite);
+        heroOrder.addAll(heroesBlack);
+        heroOrder.sort((o1,o2)->o2.getInitiative()-o1.getInitiative());
+
+
+
+        heroesWhite.forEach(n-> System.out.println(n.toString()));
+        System.out.println("---");
+        heroesBlack.forEach(n-> System.out.println(n.toString()));
+        System.out.println("---");
 //        heroesBlack.forEach(n-> n.printEnemyDistance(heroesWhite));
 
 
@@ -22,43 +34,25 @@ public class Main {
 //        System.out.println(hero1.getEnemyDist(heroesBlack));
 //        hero1.currentDemage(hero1.getEnemyDist(heroesBlack), hero1);
 
-        Sniper h1 = new Sniper("Artemisia Imbrex", 3, 4);
-        h1.shoot(heroesWhite.get(2));
-        System.out.println(heroesWhite.get(2));
-        Monk h2 = new Monk("Bella Caudinus", 7, 9);
-        h2.heal(heroesWhite.get(2));
-        h2.heal(heroesWhite.get(2));
-        h2.die();
-        Peasant h3 = new Peasant("Claudius Pulcher", 2, 3);
 
-        while(!h3.isDead()) {
-            Hero ch = h1.findClosestEnemy(heroesBlack);
-            System.out.println(ch.position.rangeEnemy(h1.getLocation()));
-            if (ch.isDead()) {
-                break;
+
+//        heroesWhite.forEach(n-> n.step(heroesBlack));
+
+        heroOrder.forEach(n-> System.out.println(n.getInitiative()));
+        System.out.println("---");
+        for (Hero h: heroOrder) {
+            if(heroesBlack.contains(h)){
+                h.step(heroesWhite);
             }
-
-            while (!ch.isDead()) {
-                while (h1.shoot(ch)) {
-                    System.out.println(ch);
-                }
-
-                if (!h1.shoot(h3)) {
-                    h3.giveBows(h1);
-                    System.out.println(h3);
-                }
-
-                if (h3.isDead()) {
-                    break;
-                }
-            }
+            else h.step(heroesBlack);
         }
+//        heroOrder.forEach(n->System.out.println(n.getInitiative()));
+//        heroesWhite.forEach(n-> n.step(heroesBlack));
+        System.out.println("---");
+//        heroesBlack.forEach(System.out::println);
+        heroesWhite.forEach(System.out::println);
     }
 
-
-
-    static ArrayList<Hero> heroesWhite= new ArrayList<>();
-    static ArrayList<Hero> heroesBlack= new ArrayList<>();
 
     static ArrayList<Hero> generateCommande(int n, int y){
 

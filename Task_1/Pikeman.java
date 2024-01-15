@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Pikeman extends Melee {
 
     public Pikeman(String nameHero, int posX, int posY) {
-        super(100, 100, 0, new int[]{0,0}, nameHero, posX, posY);
+        super(100, 100, 0, new int[]{20,30}, nameHero, posX, posY);
     }
     protected Vector2 position;
     @Override
