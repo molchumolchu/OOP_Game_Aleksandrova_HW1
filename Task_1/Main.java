@@ -42,15 +42,29 @@ public class Main {
         System.out.println("---");
         for (Hero h: heroOrder) {
             if(heroesBlack.contains(h)){
-                h.step(heroesWhite);
+                h.step(heroesWhite, heroesBlack);
             }
-            else h.step(heroesBlack);
+            else h.step(heroesBlack, heroesWhite);
+        }
+        for (Hero h: heroOrder) {
+            if(heroesBlack.contains(h)){
+                h.step(heroesWhite, heroesBlack);
+            }
+            else h.step(heroesBlack, heroesWhite);
+        }
+        for (Hero h: heroOrder) {
+            if(heroesBlack.contains(h)){
+                h.step(heroesWhite, heroesBlack);
+            }
+            else h.step(heroesBlack, heroesWhite);
         }
 //        heroOrder.forEach(n->System.out.println(n.getInitiative()));
 //        heroesWhite.forEach(n-> n.step(heroesBlack));
         System.out.println("---");
 //        heroesBlack.forEach(System.out::println);
         heroesWhite.forEach(System.out::println);
+        System.out.println("---");
+        heroesBlack.forEach(System.out::println);
     }
 
 

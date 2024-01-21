@@ -14,7 +14,7 @@ public class Peasant extends Hero {
     private static Random rand = new Random();
 
     public Peasant(String nameHero, int posX, int posY) {
-        super(100, 100, 0, new int[]{10,21}, nameHero, posX, posY);
+        super(100, 100, 0, new int[]{10,21}, nameHero, posX, posY, 1);
 
     }
     protected Vector2 position;

@@ -11,7 +11,7 @@ public class Rogue extends Melee {
 
 
     public Rogue(String nameHero, int posX, int posY) {
-        super(100, 100, 5, new int[]{5,10}, nameHero, posX, posY);
+        super(100, 100, 5, new int[]{5,10}, nameHero, posX, posY,2);
     }
     protected Vector2 position;
     @Override
@@ -19,4 +19,8 @@ public class Rogue extends Melee {
         return ("Разбойник: "+nameHero + ", health: "+ health + "/" + healthMax + " броня: " + armor);
     }
 
+//    @Override
+//    public boolean hit(Hero var1) {
+//        return false;
+//    }
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Wizard extends Support {
 
     public Wizard(String nameHero, int posX, int posY) {
-        super(50, 50, 1, new int[]{-35,-30}, nameHero, posX, posY);
+        super(50, 50, 1, new int[]{-35,-30}, nameHero, posX, posY, 2);
     }
     protected Vector2 position;
 

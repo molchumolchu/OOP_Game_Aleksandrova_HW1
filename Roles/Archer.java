@@ -1,20 +1,18 @@
 package Roles;
 
-import Interfaces.ClosestEnemySearch;
 import Interfaces.Shoot;
-import Task_1.Crossbower;
 import Task_1.Hero;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public abstract class Archer extends Hero implements Shoot, ClosestEnemySearch {
+public abstract class Archer extends Hero implements Shoot {
     protected static Random random=new Random();
     protected int ammoParts = 70;
 
 
-    public Archer(int health, int healthMax, int armor, int[] damage, String nameHero, int posX, int posY) {
-        super(health, healthMax, armor, damage, nameHero, posX, posY);
+    public Archer(int health, int healthMax, int armor, int[] damage, String nameHero, int posX, int posY, int step) {
+        super(health, healthMax, armor, damage, nameHero, posX, posY, step);
         initiative=3;
     }
 
@@ -48,13 +46,23 @@ public abstract class Archer extends Hero implements Shoot, ClosestEnemySearch {
     }
 
     @Override
-    public void step(ArrayList<Hero> enemies) {
+    public void step(ArrayList<Hero> enemies, ArrayList<Hero> alliace) {
         if (isDead()) return;
         Hero other = findClosestEnemy(enemies);
         if (shoot(other)){
             receiveAmmo(10);
         }
     }
+
+//    @Override
+//    public void step(ArrayList<Hero> enemies) {
+//        if(this.health==0||this.quantatyShoots==0) return;
+//        Hero target = findClosestEnemy(enemies);
+//        target.getDamage1((this.position.rangeEnemy(target.position)<rangeMaxDamage)? random.nextInt(damage[0], damage[1]):damage[0]);
+//
+//        System.out.println("Get damage" + this.);
+//
+//    }
 }
 
 

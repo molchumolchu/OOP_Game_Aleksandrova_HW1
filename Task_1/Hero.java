@@ -16,12 +16,19 @@ abstract public class Hero implements Step {
 
 
     protected static Random random;
-    protected int health, healthMax, armor;
+    public int health;
+    protected int healthMax;
+    protected int armor;
     protected int[] damage;
     protected String nameHero;
+    protected int step;
+//    protected float quantatyShoots=this.armor;
+//    protected float quantatyShootsMax=this.armor;
+//    protected int rangeMaxDamage=this.damage[1];
+//    protected float damagePoint=(this.position.rangeEnemy(target.position)<rangeMaxDamage)? random.nextInt(damage[0], damage[1]):damage[0]
 
 
-    public Hero(int health, int healthMax, int armor, int[] damage, String nameHero, int posX, int posY) {
+    public Hero(int health, int healthMax, int armor, int[] damage, String nameHero, int posX, int posY, int step) {
         this.health = health;
         this.healthMax = healthMax;
         this.armor = armor;
@@ -30,8 +37,12 @@ abstract public class Hero implements Step {
         this.position = new Vector2(posX, posY);
     }
 
+    public void getDamage1 (float damage){
+        health-=damage;
+        if(health<0) health=0;
+    }
 
-    protected Vector2 position;
+    public Vector2 position;
 
     public void printEnemyDistance(ArrayList<Hero> enemys) {
         enemys.forEach(n -> System.out.print(position.rangeEnemy(n.position) + ", "));
@@ -77,7 +88,7 @@ abstract public class Hero implements Step {
     }
 
     @Override
-    public void step(ArrayList<Hero> enemies) {
+    public void step(ArrayList<Hero> enemies, ArrayList<Hero> alliace) {
         System.out.println("Not implemented");
     }
 
@@ -85,6 +96,20 @@ abstract public class Hero implements Step {
 
     public int getInitiative(){
         return initiative;
+    }
+
+    public Hero findClosestEnemy(ArrayList<Hero> enemies) {
+        float minDistance = this.position.rangeEnemy(((Hero)enemies.get(0)).getLocation());
+        Hero closest = (Hero)enemies.get(0);
+
+        for(int i = 1; i < enemies.size(); ++i) {
+            float distance = ((Hero)enemies.get(i)).getLocation().rangeEnemy(this.getLocation());
+            if (distance < minDistance && !enemies.get(i).isDead()) {
+                minDistance = distance;
+                closest = (Hero)enemies.get(i);
+            }
+        }
+        return closest;
     }
 
 }

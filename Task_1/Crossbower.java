@@ -13,9 +13,8 @@ public class Crossbower extends Archer {
 
 
     public Crossbower(String nameHero, int posX, int posY) {
-        super(75, 75, 2, new int[]{10,15}, nameHero, posX, posY);
+        super(75, 75, 2, new int[]{10,15}, nameHero, posX, posY, 2);
         this.rangeMaxDamage = 4;
-
 
     }
 
@@ -27,6 +26,4 @@ public class Crossbower extends Archer {
     public String toString() {
         return ("Арбалетчик: "+nameHero + ", health: "+ health + "/" + healthMax + " броня: " + armor+ ", стрелы в наличии: "+ammoParts);
     }
-
-
 }

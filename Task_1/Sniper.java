@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Sniper extends Archer {
 
     public Sniper(String nameHero, int posX, int posY) {
-        super(75, 75, 2, new int[]{10,15}, nameHero, posX, posY);
+        super(75, 75, 2, new int[]{10,15}, nameHero, posX, posY,2);
     }
     protected Vector2 position;
     @Override
@@ -18,4 +18,8 @@ public class Sniper extends Archer {
         return ("Cнайпер: "+nameHero + ", health: "+ health + "/" + healthMax + " броня: " + armor);
     }
 
+    @Override
+    public boolean shoot(Hero var1) {
+        return false;
+    }
 }
