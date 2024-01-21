@@ -10,7 +10,7 @@ import java.util.Random;
 /*
 крестьянин, не может лечиться, носит стрелы для арбалетчика и снайпера
  */
-public class Peasant extends Hero {
+public class Peasant extends Archer {
     private static Random rand = new Random();
 
     public Peasant(String nameHero, int posX, int posY) {
