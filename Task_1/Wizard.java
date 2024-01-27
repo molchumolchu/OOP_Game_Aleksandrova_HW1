@@ -10,13 +10,18 @@ import java.util.ArrayList;
 public class Wizard extends Support {
 
     public Wizard(String nameHero, int posX, int posY) {
-        super(50, 50, 1, new int[]{-35,-30}, nameHero, posX, posY, 2);
+        super(50, 50, 1, new int[]{10, 15}, nameHero, posX, posY, 50, 50);
+        Vector2 position;
     }
-    protected Vector2 position;
 
     @Override
     public String toString() {
-        return ("Колдун: "+nameHero + ", health: "+ health + "/" + healthMax + " броня: " + armor);
+        return ("Колдун: " + super.toString());
+    }
+
+    @Override
+    public String getInfo() {
+        return "Колдун";
     }
 
 }

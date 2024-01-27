@@ -8,18 +8,19 @@ import java.util.ArrayList;
 стрелок стреляет, не двигается
  */
 public class Sniper extends Archer {
-
     public Sniper(String nameHero, int posX, int posY) {
-        super(75, 75, 2, new int[]{10,15}, nameHero, posX, posY,2);
+        super(75, 75, 2, new int[]{10, 15}, nameHero, posX, posY, 7, 7, 4);
+        angryRDD = new Rogue(this.nameHero, this.position.posX, this.position.posY);
+        angryRDD.position = this.position;
+        angryRDD.damage = new int[] {9, 10};
     }
-    protected Vector2 position;
+
     @Override
     public String toString() {
-        return ("Cнайпер: "+nameHero + ", health: "+ health + "/" + healthMax + " броня: " + armor);
+        return "Снайпер: " + super.toString();
     }
-
     @Override
-    public boolean shoot(Hero var1) {
-        return false;
+    public String getInfo() {
+        return "Снайпер";
     }
 }

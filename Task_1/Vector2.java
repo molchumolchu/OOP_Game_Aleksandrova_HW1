@@ -40,4 +40,6 @@ public class Vector2 {
     public boolean equals(Vector2 posEnemy){
         return posX == posEnemy.posX & posY == posEnemy.posY;
     }
+
+
 }

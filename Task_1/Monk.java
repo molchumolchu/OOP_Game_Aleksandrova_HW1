@@ -9,18 +9,17 @@ import java.util.ArrayList;
  */
 public class Monk extends Support {
 
-
     public Monk(String nameHero, int posX, int posY) {
-        super(50, 50, 1, new int[]{-30,-30}, nameHero, posX, posY, 2);
-
+        super(50, 50, 1, new int[]{10, 15}, nameHero, posX, posY, 50, 50);
+        Vector2 position;
     }
 
-    protected Vector2 position;
     @Override
     public String toString() {
-
-        return ("Монах: "+nameHero + ", health: "+ health + "/" + healthMax + " броня: " + armor);
+        return ("Монах: " + super.toString());
     }
-
-
+    @Override
+    public String getInfo() {
+        return "Монах";
+    }
 }

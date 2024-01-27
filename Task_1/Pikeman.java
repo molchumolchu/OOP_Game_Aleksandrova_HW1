@@ -10,16 +10,16 @@ import java.util.ArrayList;
 public class Pikeman extends Melee {
 
     public Pikeman(String nameHero, int posX, int posY) {
-        super(100, 100, 0, new int[]{20,30}, nameHero, posX, posY, 1);
-    }
-    protected Vector2 position;
-    @Override
-    public String toString() {
-        return ("Копейщик: "+nameHero + ", health: "+ health + "/" + healthMax + " броня: " + armor);
+        super(100, 100, 5, new int[]{20, 30}, nameHero, posX, posY, 1);
+        Vector2 position;
     }
 
-//    @Override
-//    public boolean hit(Hero var1) {
-//        return false;
-//    }
+    @Override
+    public String toString() {
+        return ("Копейщик: " + super.toString());
+    }
+    @Override
+    public String getInfo() {
+        return "Копейщик";
+    }
 }
