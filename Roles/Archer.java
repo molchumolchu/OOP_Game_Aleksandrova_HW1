@@ -1,10 +1,8 @@
 package Roles;
 
-import Interfaces.Shoot;
 import Task_1.Hero;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public abstract class Archer extends Hero  {
 

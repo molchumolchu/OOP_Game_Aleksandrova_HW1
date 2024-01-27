@@ -38,18 +38,13 @@ abstract public class Hero implements Step {
         if (health < 0) health = 0;
     }
 
-    /**
-     * @param enemys - список вражеских героев (ArrayList<Hero>)
-     */
+
     public void printEnemysDistance(ArrayList<Hero> enemys) {
         enemys.forEach(n -> System.out.print(position.rangeEnemy(n.position) + ", "));
         System.out.println();
     }
 
-    /**
-     * @param enemys - список вражеских героев (ArrayList<Hero>)
-     * @return - расстояние до ближайшего противника (float)
-     */
+
     public float findMinDistance(ArrayList<Hero> enemys) {
         ArrayList<Float> distances = new ArrayList<>();
         enemys.forEach(n -> distances.add(position.rangeEnemy(n.position)));
@@ -57,10 +52,7 @@ abstract public class Hero implements Step {
         return minDistance;
     }
 
-    /**
-     * @param enemys - список вражеских героев (ArrayList<Hero>)
-     * @return - ближайший вражеский герой (Hero)
-     */
+
     public Hero findNearestEnemy(ArrayList<Hero> enemys) {
         Hero heroTMP = null;
         for (int i = 0; i < enemys.size(); i++) {
@@ -75,19 +67,7 @@ abstract public class Hero implements Step {
     }
 
     public abstract String getType();
-    /*
-    etNearestEnemy(ArrayList<HeroBase> enemies) {
-        HeroBase nearestEnemy = null;
-        for (HeroBase enemy : enemies) {
-            if (enemy.liveStatus) {
-                if (nearestEnemy == null || position.distance(enemy.position) < position.distance(nearestEnemy.position)) {
-                    nearestEnemy = enemy;
-                }
-            }
-        }
-        return nearestEnemy;
-    }
-     */
+
 
     public int[] getCoords() {
         return new int[]{position.posX, position.posY};

@@ -14,6 +14,8 @@ public class Monk extends Support {
         Vector2 position;
     }
 
+
+
     @Override
     public String toString() {
         return ("Монах: " + super.toString());

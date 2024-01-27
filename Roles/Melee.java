@@ -1,11 +1,9 @@
 package Roles;
 
 import Task_1.Hero;
-import Interfaces.Hit;
 import Task_1.Vector2;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public abstract class Melee extends Hero {
     int step, damagePoint;

@@ -1,10 +1,8 @@
 package Roles;
 
-import Interfaces.Heal;
 import Task_1.Hero;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 
 public abstract class Support extends Hero  {
